@@ -33,6 +33,7 @@ object ParentProject : MyProject (
                     }
             )
 
+
             subProjects(issueTrackersIntegration.YouTrackProject)
             subProjects(Bugzilla)
             subProject { MyProject(projectName = "test") }
