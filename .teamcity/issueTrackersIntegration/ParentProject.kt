@@ -35,7 +35,7 @@ object ParentProject : MyProject (
 
             subProjects(issueTrackersIntegration.YouTrackProject)
             subProjects(Bugzilla)
-            subProject { object : MyProject(name = "Redmine", init = {}) {}  }
+            subProject { MyProject(projectName = "test") }
 //            trackers.forEach {
 //                subProject { MyProject(it.toString(), init = {it}) }
 //            }
