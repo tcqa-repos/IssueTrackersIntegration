@@ -1,9 +1,8 @@
-package issueTrackersIntegration.youtrack.youtrack523
+package issueTrackersIntegration
 
-import issueTrackersIntegration.MyProject
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.youtrack
 
-object Project : MyProject(
+object YouTrack523Project : MyProject(
         name = "YouTrack 5.2.3",
         init = {
             features {
@@ -18,5 +17,7 @@ object Project : MyProject(
                     param("key", "youtrack2")
                 }
             }
+
+            buildType(MyBuildType(name = "Build", project = this, init = {}))
         }
 )
