@@ -5,7 +5,7 @@ import issueTrackersIntegration.MyProject
 
 object ParentProject : MyProject(
         name = "BugZilla",
-        parentProject = issueTrackersIntegration.ParentProject,
+        parentProjectId = issueTrackersIntegration.ParentProject.extId,
         init = {
             subProjects()
         }

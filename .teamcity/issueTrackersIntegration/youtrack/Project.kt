@@ -5,7 +5,7 @@ import issueTrackersIntegration.youtrack.youtrack523.Project
 
 object Project : MyProject(
         name = "YouTrack",
-        parentProject = issueTrackersIntegration.ParentProject,
+        parentProjectId = issueTrackersIntegration.ParentProject.extId,
         init = {
             subProjects(Project)
         }
