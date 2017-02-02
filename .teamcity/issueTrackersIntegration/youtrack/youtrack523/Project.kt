@@ -5,7 +5,6 @@ import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.youtrack
 
 object Project : MyProject(
         name = "YouTrack 5.2.3",
-        parentProjectId = issueTrackersIntegration.youtrack.Project.extId,
         init = {
             features {
                 youtrack {
