@@ -7,5 +7,6 @@ open class MyProject(name: String, parentProject: Project, init: Project.() -> U
     init {
         extId = "${parentProject.extId}_$name".toExtId()
         uuid = extId
+        parentId = parentProject.extId
     }
 }
