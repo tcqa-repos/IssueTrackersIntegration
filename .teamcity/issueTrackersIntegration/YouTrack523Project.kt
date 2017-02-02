@@ -3,7 +3,7 @@ package issueTrackersIntegration
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.youtrack
 
 object YouTrack523Project : MyProject(
-        name = "YouTrack 5.2.3",
+        projectName = "YouTrack 5.2.3",
         init = {
             features {
                 youtrack {

@@ -1,7 +1,7 @@
 package issueTrackersIntegration
 
 object YouTrackProject : MyProject(
-        name = "YouTrack",
+        projectName = "YouTrack",
         init = {
             subProjects(YouTrack523Project)
         }

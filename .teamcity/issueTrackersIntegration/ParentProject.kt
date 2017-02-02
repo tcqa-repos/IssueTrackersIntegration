@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.youtrack
 
 object ParentProject : MyProject (
 
-        name = "Issue Trackers Integration Kotlin",
+        projectName = "Issue Trackers Integration Kotlin",
         init = {
 
             parentId = "CleanConfigurations_IssueTrackersIntegration"

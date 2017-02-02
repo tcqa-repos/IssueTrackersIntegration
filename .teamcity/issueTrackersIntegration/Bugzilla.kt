@@ -2,7 +2,7 @@ package issueTrackersIntegration
 
 
 object Bugzilla : MyProject(
-        name = "BugZilla",
+        projectName = "BugZilla",
         init = {
         }
 )
