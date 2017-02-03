@@ -31,12 +31,13 @@ object ParentProject : MyProject (
                             param("key", "jira1")
                         }
                     }
-            ).map {object : MyProject(
+            ).map {subProjects (object : MyProject(
                     projectName = "My Project Name $it" ,
                     init = {
                         parentId = "Issue Trackers Integration Kotlin".toExtId()
                         it
                     }) {}
+            )
             }
 
 
