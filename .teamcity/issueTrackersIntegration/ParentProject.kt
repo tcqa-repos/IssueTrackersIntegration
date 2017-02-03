@@ -9,7 +9,7 @@ import jetbrains.buildServer.configs.kotlin.v10.toExtId
 import org.jetbrains.kotlin.utils.addToStdlib.singletonList
 
 object ParentProject : MyProject ("Issue Trackers Integration Kotlin", {
-    parentId = "CleanConfigurations_IssueTrackersIntegration"
+    parentId = "_Root"
 
     vcsRoot(VcsRoot)
 
