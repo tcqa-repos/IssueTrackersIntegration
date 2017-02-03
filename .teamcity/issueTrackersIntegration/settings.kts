@@ -1,4 +1,4 @@
-package IssueTrackersIntegration
+package issueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.project
 import jetbrains.buildServer.configs.kotlin.v10.version
@@ -21,7 +21,8 @@ template() methods respectively.
 
 Subprojects can be defined either in their own settings.kts or by
 calling the subProjects() method in this project.
+
 */
 
 version = "10.0"
-project(IssueTrackersIntegration.ParentProject)
+project(issueTrackersIntegration.ParentProject)

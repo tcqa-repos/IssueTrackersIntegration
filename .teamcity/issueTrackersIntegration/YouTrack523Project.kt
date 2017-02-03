@@ -1,4 +1,4 @@
-package IssueTrackersIntegration
+package issueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.youtrack
 

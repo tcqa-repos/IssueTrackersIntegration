@@ -1,4 +1,4 @@
-package IssueTrackersIntegration
+package issueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.BuildType
 import jetbrains.buildServer.configs.kotlin.v10.CheckoutMode
