@@ -1,71 +1,59 @@
 package issueTrackersIntegration
 
-import jetbrains.buildServer.configs.kotlin.v10.Project
+import jetbrains.buildServer.configs.kotlin.v10.ParameterDisplay
 import jetbrains.buildServer.configs.kotlin.v10.ProjectFeatures
-import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.JiraIssueTracker
-import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.YouTrackIssueTracker
+import jetbrains.buildServer.configs.kotlin.v10.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.VersionedSettings
+import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.versionedSettings
 import jetbrains.buildServer.configs.kotlin.v10.toExtId
 import org.jetbrains.kotlin.utils.addToStdlib.singletonList
 
-object ParentProject : MyProject (
+object ParentProject : MyProject ("Issue Trackers Integration Kotlin", {
+    parentId = "CleanConfigurations_IssueTrackersIntegration"
 
-        projectName = "Issue Trackers Integration Kotlin",
-        init = {
-            parentId = "CleanConfigurations_IssueTrackersIntegration"
+    vcsRoot(VcsRoot)
 
-            val projects = arrayOf(
-                    ProjectFeatures(
-                            YouTrackIssueTracker ({
-                                displayName = "YT 6"
-                                host = "http://tcqa-youtrack-6"
-                                userName = "root"
-                                password = "zxx0feb335798e7f083"
-                                projectExtIds = "PR"
-                                useAutomaticIds = true
-                                param("key", "youtrack1")
-                            }).singletonList()
-                    ),
-                    ProjectFeatures(
-                            JiraIssueTracker ({
-                                displayName = "JIRA"
-                                host = "http://tcqa-issue-trackers:8080/"
-                                userName = "admin"
-                                password = "zxx0feb335798e7f083"
-                                projectKeys = "JTCI"
-                                param("key", "jira1")
-                            }).singletonList()
-                    )
-            ).map {object : MyProject( "Test Project Name ${it.hashCode()}", {
-                        parentId = "Issue Trackers Integration Kotlin".toExtId()
-                        features(it)
-                    }) {}
-            }
+    val projects = mapOf<String, ProjectFeatures>(
+            Pair("YouTrack 6.0", ProjectFeatures(YouTrack_6_0.singletonList())),
+            Pair("Jira", ProjectFeatures(Jira.singletonList())),
+            Pair("Visual Studio Online", ProjectFeatures(VisualStudioOnline.singletonList())),
+            Pair("GitHub Cloud", ProjectFeatures(listOf(GithubCloud, GithubOAuth))),
+            Pair("BitBucket Cloud", ProjectFeatures(listOf(BitbucketCloud, BitbucketCloudOAuth)))
+    ).map {
+        MyProject( it.key, {
+            parentId = "Issue Trackers Integration Kotlin".toExtId()
+            buildType(MyBuildType(this))
+            features(it.value)
+        })
+    }
 
+    projects.forEach { subProject(it) }
 
-            //subProjects(issueTrackersIntegration.YouTrackProject)
-//            subProjects(Bugzilla)
-//            subProjects (
-//                    object : Project({
-//                        name = "My Project"
-//                        uuid = "some-uuid"
-//                        extId = name.toExtId()
-//                    }) {}
-//            )
-
-            subProject (
-                    Project({
-                        name = "My Project 2"
-                        uuid = "some-uuidD"
-                        extId = name.toExtId()
-                    })
-            )
-            subProjects (Bugzilla)
-
-
-//            projects.forEach { subProjects (it) }
-
-//            trackers.forEach {
-//                subProject { MyProject(it.toString(), init = {it}) }
-//            }
+    features {
+        versionedSettings {
+            mode = VersionedSettings.Mode.ENABLED
+            buildSettingsMode = VersionedSettings.BuildSettingsMode.USE_CURRENT_SETTINGS
+            rootExtId = VcsRoot.extId
+            showChanges = true
+            settingsFormat = VersionedSettings.Format.KOTLIN
         }
-)
+    }
+
+    buildType(MyBuildType(this, "Create commit", {
+        params {
+            text("commit.message", "", display = ParameterDisplay.PROMPT, allowEmpty = false)
+            param("file", "File.txt")
+            password("my.password", "zxxc60bd5a4f5bd34cb220d9a207b8d406a62c881aae03aa6ef8fcb560c3dbe1138516c0d0ee4d87467775d03cbe80d301b")
+            param("my.username", "tcqa-repos")
+        }
+
+        steps {
+            script {
+                scriptContent = """
+                echo {"message":"%commit.message%", "sha": "0d5a690c8fad5e605a6e8766295d9d459d65de42", "content": "YWFhCjExMQoyMjIK\n"} > data.txt
+                curl -X PUT -H "Authorization: token 3716d07a9b5cbf3a9b081e2f019ea4ab7600a44c" --data @data.txt https://api.github.com/repos/tcqa-repos/IssueTrackersIntegration/contents/File%build.counter%.txt
+            """.trimIndent()
+            }
+        }
+    }))
+})

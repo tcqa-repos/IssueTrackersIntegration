@@ -21,7 +21,6 @@ template() methods respectively.
 
 Subprojects can be defined either in their own settings.kts or by
 calling the subProjects() method in this project.
-
 */
 
 version = "10.0"

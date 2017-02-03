@@ -5,14 +5,14 @@ import jetbrains.buildServer.configs.kotlin.v10.CheckoutMode
 import jetbrains.buildServer.configs.kotlin.v10.Project
 import jetbrains.buildServer.configs.kotlin.v10.toExtId
 
-open class MyBuildType(name: String, project: Project, init: BuildType.() -> Unit) : BuildType(init) {
-    init {
-        extId = "${project.extId}_$name".toExtId()
-        uuid = extId
+open class MyBuildType(project: Project, name: String = "Build", init: BuildType.() -> Unit = {}) : BuildType({
+    this.name = name
+    extId = "${project.extId}_$name".toExtId()
+    uuid = extId
 
-        vcs {
-            root(CleanConfigurations_IssueTrackersIntegration.vcsRoots.CleanConfigurations_IssueTrackersIntegration_IssueTrackersIntegration)
-            checkoutMode = CheckoutMode.ON_SERVER
-        }
+    vcs {
+        root(VcsRoot)
+        checkoutMode = CheckoutMode.ON_SERVER
     }
-}
+    init()
+})
