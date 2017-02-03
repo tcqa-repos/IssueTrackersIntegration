@@ -10,7 +10,7 @@ object ParentProject : MyProject (
         init = {
             parentId = "CleanConfigurations_IssueTrackersIntegration"
 
-            val trackers = arrayOf(
+            arrayOf(
                     features {
                         youtrack {
                             displayName = "YT 6"
@@ -31,20 +31,17 @@ object ParentProject : MyProject (
                             param("key", "jira1")
                         }
                     }
-            )
+            ).map {object : MyProject(
+                    projectName = "My Project Name $it" ,
+                    init = {
+                        parentId = "Issue Trackers Integration Kotlin".toExtId()
+                        it
+                    }) {}
+            }
 
 
             //subProjects(issueTrackersIntegration.YouTrackProject)
             subProjects(Bugzilla)
-/*            subProject {
-                 Project({
-                    name = "My Project Name"
-                    uuid = "aaaaaaa"
-                    extId = name.toExtId()
-                    parentId = "Issue Trackers Integration Kotlin".toExtId()
-                })
-            }*/
-
             subProjects (
                     object : MyProject(
                             projectName = "My Project Name" ,
