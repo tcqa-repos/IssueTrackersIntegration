@@ -38,12 +38,12 @@ object ParentProject : MyProject (
             //subProjects(issueTrackersIntegration.YouTrackProject)
             subProjects(Bugzilla)
             subProject {
-                object : Project({
+                 Project({
                     name = "My Project Name"
                     uuid = "aaaaaaa"
                     extId = name.toExtId()
-                    parentId = this.extId
-                }) {}
+                    parentId = "Issue Trackers Integration Kotlin".toExtId()
+                })
             }
 
 //            trackers.forEach {
