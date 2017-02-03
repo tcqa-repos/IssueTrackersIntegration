@@ -1,4 +1,4 @@
-package issueTrackersIntegration
+package IssueTrackersIntegration
 
 object YouTrackProject : MyProject(
         projectName = "YouTrack",

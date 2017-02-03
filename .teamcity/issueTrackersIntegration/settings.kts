@@ -1,4 +1,4 @@
-package issueTrackersIntegration
+package IssueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.project
 import jetbrains.buildServer.configs.kotlin.v10.version
@@ -24,4 +24,4 @@ calling the subProjects() method in this project.
 */
 
 version = "10.0"
-project(issueTrackersIntegration.ParentProject)
+project(IssueTrackersIntegration.ParentProject)

@@ -4,7 +4,7 @@
   <name>CleanConfigurations_IssueTrackersIntegration Config DSL Script</name>
   <properties>
     <kotlin.version>1.0.3</kotlin.version>
-    <teamcity.dsl.version>10.0.5-SNAPSHOT</teamcity.dsl.version>
+      <teamcity.dsl.version>10.0.5-SNAPSHOT</teamcity.dsl.version>
   </properties>
   <groupId>CleanConfigurations_IssueTrackersIntegration</groupId>
   <artifactId>CleanConfigurations_IssueTrackersIntegration_dsl</artifactId>
