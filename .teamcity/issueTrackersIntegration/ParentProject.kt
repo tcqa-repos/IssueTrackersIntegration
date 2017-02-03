@@ -1,13 +1,14 @@
 package issueTrackersIntegration
 
+import jetbrains.buildServer.configs.kotlin.v10.Project
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.jira
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.youtrack
+import jetbrains.buildServer.configs.kotlin.v10.toExtId
 
 object ParentProject : MyProject (
 
         projectName = "Issue Trackers Integration Kotlin",
         init = {
-
             parentId = "CleanConfigurations_IssueTrackersIntegration"
 
             val trackers = arrayOf(
@@ -34,9 +35,17 @@ object ParentProject : MyProject (
             )
 
 
-            subProjects(issueTrackersIntegration.YouTrackProject)
+            //subProjects(issueTrackersIntegration.YouTrackProject)
             subProjects(Bugzilla)
-            subProject { MyProject(projectName = "test") }
+            subProject {
+                object : Project({
+                    name = "My Project Name"
+                    uuid = "aaaaaaa"
+                    extId = name.toExtId()
+                    parentId = this.extId
+                }) {}
+            }
+
 //            trackers.forEach {
 //                subProject { MyProject(it.toString(), init = {it}) }
 //            }
