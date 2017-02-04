@@ -1,4 +1,4 @@
-package issueTrackersIntegration
+package IssueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.ParameterDisplay
 import jetbrains.buildServer.configs.kotlin.v10.ProjectFeatures
@@ -7,7 +7,7 @@ import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.VersionedSetting
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.versionedSettings
 import jetbrains.buildServer.configs.kotlin.v10.toExtId
 
-object ParentProject : MyProject ("Issue Trackers Integration Kotlin", {
+object ParentProject : MyProject ("Issue Trackers Integration", {
     parentId = "_Root"
 
     vcsRoot(VcsRoot)

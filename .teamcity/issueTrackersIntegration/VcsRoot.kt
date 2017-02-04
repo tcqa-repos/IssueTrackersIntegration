@@ -1,4 +1,4 @@
-package issueTrackersIntegration
+package IssueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.vcs.GitVcsRoot
 

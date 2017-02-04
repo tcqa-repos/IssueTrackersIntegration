@@ -1,4 +1,4 @@
-package issueTrackersIntegration
+package IssueTrackersIntegration
 
 import jetbrains.buildServer.configs.kotlin.v10.ProjectFeature
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.BugzillaIssueTracker
