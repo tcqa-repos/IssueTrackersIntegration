@@ -6,7 +6,6 @@ import jetbrains.buildServer.configs.kotlin.v10.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.VersionedSettings
 import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.versionedSettings
 import jetbrains.buildServer.configs.kotlin.v10.toExtId
-import org.jetbrains.kotlin.utils.addToStdlib.singletonList
 
 object ParentProject : MyProject ("Issue Trackers Integration Kotlin", {
     parentId = "_Root"
@@ -14,9 +13,11 @@ object ParentProject : MyProject ("Issue Trackers Integration Kotlin", {
     vcsRoot(VcsRoot)
 
     val projects = mapOf<String, ProjectFeatures>(
-            Pair("YouTrack 6.0", ProjectFeatures(YouTrack_6_0.singletonList())),
-            Pair("Jira", ProjectFeatures(Jira.singletonList())),
-            Pair("Visual Studio Online", ProjectFeatures(VisualStudioOnline.singletonList())),
+            Pair("YouTrack 6.0", ProjectFeatures(listOf(YouTrack_6_0))),
+            Pair("Jira", ProjectFeatures(listOf(Jira))),
+            Pair("Bugzilla", ProjectFeatures(listOf(Bugzilla_3_4))),
+            Pair("Fogbugz", ProjectFeatures(listOf(FogBugz))),
+            Pair("Visual Studio Online", ProjectFeatures(listOf(VisualStudioOnline))),
             Pair("GitHub Cloud", ProjectFeatures(listOf(GithubCloud, GithubOAuth))),
             Pair("BitBucket Cloud", ProjectFeatures(listOf(BitbucketCloud, BitbucketCloudOAuth)))
     ).map {
