@@ -44,7 +44,7 @@ object ParentProject : MyProject ("Issue Trackers Integration", {
         params {
             text("commit.message", "", display = ParameterDisplay.PROMPT, allowEmpty = false)
             param("file", "File.txt")
-            password("token", "c0f2e62dfb8ce0c157f6eb4405ce9b7590312c53")
+            param("token", "c0f2e62dfb8ce0c157f6eb4405ce9b7590312c53")
             param("my.username", "tcqa-repos")
         }
 
