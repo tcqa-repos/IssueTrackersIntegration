@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <name>CleanConfigurations_IssueTrackersIntegration Config DSL Script</name>
+  <name>IssueTrackersIntegration Config DSL Script</name>
   <properties>
     <kotlin.version>1.0.3</kotlin.version>
       <teamcity.dsl.version>10.0.5-SNAPSHOT</teamcity.dsl.version>
   </properties>
-  <groupId>CleanConfigurations_IssueTrackersIntegration</groupId>
-  <artifactId>CleanConfigurations_IssueTrackersIntegration_dsl</artifactId>
+  <groupId>IssueTrackersIntegration</groupId>
+  <artifactId>IssueTrackersIntegration_dsl</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <repositories>
