@@ -44,7 +44,7 @@ object ParentProject : MyProject ("Issue Trackers Integration", {
         params {
             text("commit.message", "", display = ParameterDisplay.PROMPT, allowEmpty = false)
             param("file", "File.txt")
-            param("token", "c0f2e62dfb8ce0c157f6eb4405ce9b7590312c53")
+            password("token", "c273f147a4ab2e46fd0db15fe47e04a230f60e57")
             param("my.username", "tcqa-repos")
         }
 
@@ -52,7 +52,7 @@ object ParentProject : MyProject ("Issue Trackers Integration", {
             script {
                 scriptContent = """
                 echo {"message":"%commit.message%", "sha": "0d5a690c8fad5e605a6e8766295d9d459d65de42", "content": "YWFhCjExMQoyMjIK\n"} > data.txt
-                curl -X PUT -H "authToken: %token%" --data @data.txt https://api.github.com/repos/tcqa-repos/IssueTrackersIntegration/contents/File%build.counter%.txt
+                curl -X PUT -H "Authorization: token %token%" --data @data.txt https://api.github.com/repos/tcqa-repos/IssueTrackersIntegration/contents/File%build.counter%.txt
             """.trimIndent()
             }
         }
