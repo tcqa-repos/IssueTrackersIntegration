@@ -20,7 +20,8 @@
     </repository>
     <repository>
       <id>teamcity-server</id>
-      <url>http://unit-539:8111/app/dsl-plugins-repository</url>
+      <!--<url>http://buildserver.labs.intellij.net/app/dsl-plugins-repository</url>-->
+        <url>http://unit-539:8111/app/dsl-plugins-repository</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
@@ -92,5 +93,10 @@
       <version>${kotlin.version}</version>
       <scope>compile</scope>
     </dependency>
+      <dependency>
+          <artifactId>configs-dsl-kotlin-jetbrains.git</artifactId>
+          <groupId>org.jetbrains.teamcity</groupId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
   </dependencies>
 </project>
