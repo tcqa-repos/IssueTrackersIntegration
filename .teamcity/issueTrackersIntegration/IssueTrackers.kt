@@ -16,11 +16,11 @@ val YouTrack_6_0 = YouTrackIssueTracker ({
     param("key", "youtrack1")
 })
 
-val Jira = JiraIssueTracker ({
+val Jira_7_2_6 = JiraIssueTracker ({
     displayName = "JIRA"
-    host = "http://tcqa-issue-trackers:8080/"
-    userName = "admin"
-    password = "zxx0feb335798e7f083"
+    host = "http://tcqa-jira.labs.intellij.net:8080"
+    userName = "jetbrains"
+    password = "zxx40e55c340cc60870afe724486117c369"
     projectKeys = "JTCI"
     param("key", "jira1")
 })
@@ -70,6 +70,24 @@ val Bugzilla_3_4 = BugzillaIssueTracker({
     host = "http://tcqa-issue-trackers:80/"
     userName = ""
     password = "zxx775d03cbe80d301b"
+    issueIdPattern = """#(\d+)"""
+    param("key", "bugzilla1")
+})
+
+val Bugzilla_5_0_1 = BugzillaIssueTracker({
+    displayName = "Bugzilla 5.0.1"
+    host = "http://tcqa-bugzilla-50:80/"
+    userName = "teamcity.qa.server@gmail.com"
+    password = "zxx40e55c340cc60870afe724486117c369"
+    issueIdPattern = """#(\d+)"""
+    param("key", "bugzilla1")
+})
+
+val Bugzilla_4_4 = BugzillaIssueTracker({
+    displayName = "Bugzilla 4.4"
+    host = "http://tcqa-bugzilla-44:80/"
+    userName = "teamcity.qa.server@gmail.com"
+    password = "zxx40e55c340cc60870afe724486117c369"
     issueIdPattern = """#(\d+)"""
     param("key", "bugzilla1")
 })
