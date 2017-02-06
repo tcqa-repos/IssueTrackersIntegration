@@ -1,6 +1,7 @@
 package IssueTrackersIntegration
 
-import jetbrains.buildServer.configs.kotlin.v10.*
+import jetbrains.buildServer.configs.kotlin.v10.project
+import jetbrains.buildServer.configs.kotlin.v10.version
 
 /*
 The settings script is an entry point for defining a single
@@ -23,4 +24,4 @@ calling the subProjects() method in this project.
 */
 
 version = "10.0"
-project(IssueTrackersIntegration.Project)
+project(IssueTrackersIntegration.ParentProject)

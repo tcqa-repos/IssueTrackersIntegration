@@ -14,8 +14,10 @@ object ParentProject : MyProject ("Issue Trackers Integration", {
 
     val projects = mapOf<String, ProjectFeatures>(
             Pair("YouTrack 6.0", ProjectFeatures(listOf(YouTrack_6_0))),
-            Pair("Jira", ProjectFeatures(listOf(Jira))),
-            Pair("Bugzilla", ProjectFeatures(listOf(Bugzilla_3_4))),
+            Pair("Jira 7.2.6", ProjectFeatures(listOf(Jira_7_2_6))),
+            Pair("Bugzilla 3.4", ProjectFeatures(listOf(Bugzilla_3_4))),
+            Pair("Bugzilla 4.4", ProjectFeatures(listOf(Bugzilla_4_4))),
+            Pair("Bugzilla 5.0.1", ProjectFeatures(listOf(Bugzilla_5_0_1))),
             Pair("Fogbugz", ProjectFeatures(listOf(FogBugz))),
             Pair("Visual Studio Online", ProjectFeatures(listOf(VisualStudioOnline))),
             Pair("GitHub Cloud", ProjectFeatures(listOf(GithubCloud, GithubOAuth))),
