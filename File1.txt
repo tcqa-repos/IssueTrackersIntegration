@@ -2,3 +2,4 @@ my new file contents
 sssss
 ssss
 dddd
+ssss
