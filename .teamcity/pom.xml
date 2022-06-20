@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <name>IssueTrackersIntegration Config DSL Script</name>
   <properties>
-    <kotlin.version>1.0.3</kotlin.version>
+    <kotlin.version>1.6.0</kotlin.version>
       <teamcity.dsl.version>10.0.5-SNAPSHOT</teamcity.dsl.version>
   </properties>
   <groupId>IssueTrackersIntegration</groupId>
